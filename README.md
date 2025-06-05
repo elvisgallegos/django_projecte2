@@ -1,1 +1,2 @@
-# django_projecte2
+# Projecte 2
+## Lliga de futbol
