@@ -30,4 +30,3 @@ class PartitAdmin(admin.ModelAdmin):
         return "{} - {}".format(gols_local,gols_visit)
 
 admin.site.register(Partit,PartitAdmin)
-
