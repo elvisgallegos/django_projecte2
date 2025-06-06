@@ -7,10 +7,18 @@ from .models import *
 
 class MenuForm(forms.Form):
     lliga = forms.ModelChoiceField(queryset=Lliga.objects.all())
-    # nom = forms.CharField()
-    # cognoms = forms.CharField()
-    # edat = forms.IntegerField()
 
+def menu(request):
+    form = MenuForm()
+    if request.method == "POST":
+        form = MenuForm(request.POST)
+        if form.is_valid():
+            lliga = form.cleaned_data.get("lliga")
+            # cridem a /classificacio/<lliga_id>
+            return redirect('classificacio',lliga.id)
+    return render(request, "menu.html",{
+                    "form": form,
+            })
 
 def classificacio_menu(request):
     queryset = Lliga.objects.all()
